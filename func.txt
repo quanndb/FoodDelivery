@@ -1,0 +1,17 @@
+Login: Admin, Provider, Customer. Authentication, Authorization
+
+-Customer
+Main menu: Home, Account, Liked Food,
+Account: Manage account, payment
+Home: Nearest food, Again, Recommendation food, Desert, Soup, Rice, Noodle,...
+Liked food: Desert, Soup, Rice, Noodle,...
+
+-Provider
+Home: manage Provider's page, avata, foods
+Thong ke: thong ke doanh so, don hang theo thang
+Setting: Huy shop,...
+
+-Admin
+Shop management
+Product management
+order management
