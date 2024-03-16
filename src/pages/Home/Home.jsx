@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import UserBox from "../components/UserBox";
+import UserBox from "../../components/UserBox";
 
 const Home = () => {
   return (

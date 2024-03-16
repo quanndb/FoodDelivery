@@ -36,7 +36,11 @@ const AuthProvider = ({ children }) => {
   }, [auth]);
   return (
     <AuthContext.Provider value={{ user, setUser, auth }}>
-      {isLoading ? <CircularProgress /> : children}
+      {isLoading ? (
+        <CircularProgress sx={{ margin: "auto", width: "100%" }} />
+      ) : (
+        children
+      )}
     </AuthContext.Provider>
   );
 };

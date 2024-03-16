@@ -14,10 +14,14 @@ import store from "./redux/store.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <Container maxWidth="lg" sx={{ textAlign: "center", marginTop: "50px" }}>
+    <Container
+      disableGutters={true}
+      maxWidth={false}
+      sx={{ textAlign: "center" }}
+    >
+      <Provider store={store}>
         <RouterProvider router={router} />
-      </Container>
-    </Provider>
+      </Provider>
+    </Container>
   </React.StrictMode>
 );
