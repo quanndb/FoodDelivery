@@ -1,8 +1,8 @@
 import { CircularProgress, Container, Paper } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
-import SignUp from "../../components/SignUp";
-import LoginComponent from "../../components/LoginComponent";
+import SignUp from "../../components/login/SignUp";
+import LoginComponent from "../../components/login/LoginComponent";
 import "./index.css";
 
 const Login = () => {

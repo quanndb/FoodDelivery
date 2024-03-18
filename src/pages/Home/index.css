@@ -1,0 +1,17 @@
+#logo {
+  background-image: url(../../assets//logoWhite.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#banner {
+  background-image: url(../../assets//banner2.jpg);
+  width: 100%;
+  height: 52vh;
+  background-repeat: no-repeat;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  z-index: -1;
+}

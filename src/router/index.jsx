@@ -3,6 +3,7 @@ import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import AuthProvider from "../context/AuthProvider";
 import ProtectedRoute from "./ProtectedRoute";
+import Order from "../pages/Order/Order";
 
 const AuthLayout = () => {
   return (
@@ -26,6 +27,10 @@ export default createBrowserRouter([
           {
             element: <Home />,
             path: "/",
+          },
+          {
+            element: <Order />,
+            path: "/order",
           },
         ],
       },

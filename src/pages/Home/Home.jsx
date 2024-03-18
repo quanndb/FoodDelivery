@@ -1,11 +1,12 @@
-import { Typography } from "@mui/material";
-import UserBox from "../../components/UserBox";
+import { Box } from "@mui/material";
+import Header from "../../components/homeElement/Header";
+import "./index.css";
 
 const Home = () => {
   return (
     <>
-      <Typography variant="h5">Home</Typography>
-      <UserBox />
+      <Header />
+      <Box id="banner"></Box>
     </>
   );
 };
