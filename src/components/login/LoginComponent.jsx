@@ -17,7 +17,12 @@ const LoginComponent = ({ setIsSignUp, setIsLoading }) => {
   };
 
   return (
-    <>
+    <Box
+      sx={{
+        maxHeight: "450px",
+        overflowY: "auto",
+      }}
+    >
       <Typography variant="h4" sx={{ margin: "30px 0px", fontWeight: "500" }}>
         Welcome to Food Delivery App
       </Typography>
@@ -37,7 +42,7 @@ const LoginComponent = ({ setIsSignUp, setIsLoading }) => {
           Click here
         </Button>
       </Typography>
-      <Box sx={{ width: "70%" }}>
+      <Box sx={{ width: "100%" }}>
         <Button
           variant="outlined"
           onClick={handleLoginWithGoogle}
@@ -53,7 +58,7 @@ const LoginComponent = ({ setIsSignUp, setIsLoading }) => {
           </Button>
         </Typography>
       </Box>
-    </>
+    </Box>
   );
 };
 

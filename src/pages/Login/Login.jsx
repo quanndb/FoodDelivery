@@ -1,9 +1,10 @@
-import { CircularProgress, Container, Paper } from "@mui/material";
+import { CircularProgress, Container, Paper, Box } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import SignUp from "../../components/login/SignUp";
 import LoginComponent from "../../components/login/LoginComponent";
 import "./index.css";
+import { auth } from "../../firebase/config";
 
 const Login = () => {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -32,27 +33,38 @@ const Login = () => {
           justifyContent: "center",
         }}
       >
-        <Paper
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            width: "60%",
+        <Box
+          style={{
+            padding: " 6px 0px",
+            width: "450px",
             minWidth: "350px",
-            justifySelf: "center",
+            height: "60%",
           }}
         >
-          {isLoadding ? (
-            <CircularProgress />
-          ) : isSignUp ? (
-            <SignUp setIsSignUp={setIsSignUp} setIsLoading={setIsLoading} />
-          ) : (
-            <LoginComponent
-              setIsSignUp={setIsSignUp}
-              setIsLoading={setIsLoading}
-            />
-          )}
-        </Paper>
+          <Paper
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifySelf: "center",
+              height: "100%",
+              borderRadius: 4,
+              maxWidth: "500px",
+              overflowY: "auto",
+            }}
+          >
+            {isLoadding ? (
+              <CircularProgress style={{ overflow: "hidden" }} />
+            ) : isSignUp ? (
+              <SignUp setIsSignUp={setIsSignUp} setIsLoading={setIsLoading} />
+            ) : (
+              <LoginComponent
+                setIsSignUp={setIsSignUp}
+                setIsLoading={setIsLoading}
+              />
+            )}
+          </Paper>
+        </Box>
       </Container>
     </div>
   );

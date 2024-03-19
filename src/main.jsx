@@ -17,7 +17,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Container
       disableGutters={true}
       maxWidth={false}
-      sx={{ textAlign: "center" }}
+      sx={{ textAlign: "center", height: "2000px" }}
     >
       <Provider store={store}>
         <RouterProvider router={router} />

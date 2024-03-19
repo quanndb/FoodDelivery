@@ -24,7 +24,7 @@ const UserBox = () => {
           sx={{
             width: "40px",
             height: "40px",
-            border: "solid 1px #ffff",
+            border: "solid 1px #f0f0f0dd",
             margin: "0px 10px 0px 10px",
             cursor: "pointer",
             "&:hover": {

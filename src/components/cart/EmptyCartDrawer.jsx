@@ -32,6 +32,7 @@ const EmptyCart = () => {
           Let's add some foods to your cart and start order now.
         </Typography>
         <Button
+          color="error"
           sx={{ marginTop: "20px" }}
           endIcon={<EastIcon />}
           onClick={handleCloseDrawer}

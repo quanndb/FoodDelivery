@@ -2,13 +2,18 @@ import { Box, Button, IconButton, Menu, MenuItem } from "@mui/material";
 import UserBox from "./UserBox";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import DrawerManagerSlice from "../../redux/slices/DrawerManagerSlice";
 import EmptyCart from "../cart/EmptyCartDrawer";
 import UserMenuDrawer from "./UserMenuDrawer";
+import "./index.css";
 
 const Header = () => {
+  const headerRef = useRef();
+
+  const logoRef = useRef();
+
   const dispatch = useDispatch();
 
   const listLang = [
@@ -30,10 +35,6 @@ const Header = () => {
     dispatch(DrawerManagerSlice.actions.setOpenCartDrawer(true));
   };
 
-  const handleOpenUserDrawer = () => {
-    console.log("ncssss");
-  };
-
   const handleSetLang = (e) => {
     const selectedLang = listLang.filter((lang) => {
       return lang.flang === e.target.outerText;
@@ -44,14 +45,42 @@ const Header = () => {
   const handleClose = () => {
     setLangAnchorEl(null);
   };
+
+  const handleChangeHeader = (state) => {
+    if (state) {
+      headerRef.current.classList.add("scrollHeader");
+      logoRef.current.style.backgroundImage = "url(src/assets/logoRed.png)";
+    } else {
+      headerRef.current.classList.remove("scrollHeader");
+      logoRef.current.style.backgroundImage = "url(src/assets/logoWhite.png)";
+    }
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 1) {
+        handleChangeHeader(true);
+      } else {
+        handleChangeHeader(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <Box
+      ref={headerRef}
       display={"flex"}
       sx={{
         width: "100%",
         justifyContent: "center",
-        marginTop: "10px",
+        padding: "10px 0px 10px 0px",
         position: "fixed",
+        top: 0,
+        zIndex: 1,
       }}
     >
       <Box
@@ -64,6 +93,7 @@ const Header = () => {
         }}
       >
         <Box
+          ref={logoRef}
           id="logo"
           sx={{ width: "150px", height: "50px", cursor: "pointer" }}
           onClick={() => {
@@ -79,14 +109,14 @@ const Header = () => {
           <IconButton
             sx={{
               margin: "10px",
-              backgroundColor: "#ffff",
+              backgroundColor: "#f0f0f0dd",
               "&:hover": { backgroundColor: "#e9e9e9dd" },
             }}
             aria-label="open cart"
             color="primary"
             onClick={handleOpenCart}
           >
-            <ShoppingCartOutlinedIcon />
+            <ShoppingCartOutlinedIcon color="error" />
           </IconButton>
           <EmptyCart />
           <UserBox />
@@ -96,9 +126,10 @@ const Header = () => {
             endIcon={<ArrowDropDownIcon />}
             sx={{
               margin: "10px",
-              backgroundColor: "#ffff",
+              backgroundColor: "#f0f0f0dd",
               "&:hover": { backgroundColor: "#e9e9e9dd" },
             }}
+            color="error"
             disableElevation
             variant="text"
           >

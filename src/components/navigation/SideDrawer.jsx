@@ -32,7 +32,7 @@ function SideDrawer({ children, open, drawer }) {
           left: "10px",
           cursor: "pointer",
         }}
-        color="primary"
+        color="error"
         onClick={handleCloseDrawer}
       />
 
