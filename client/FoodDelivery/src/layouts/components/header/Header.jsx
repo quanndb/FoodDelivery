@@ -1,20 +1,24 @@
-import { Box, Button, IconButton, Menu, MenuItem } from "@mui/material";
-import UserBox from "./UserBox";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import { Box, Button, Menu, MenuItem } from "@mui/material";
+import UserBox from "../homeElement/UserBox";
+import EastIcon from "@mui/icons-material/East";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import DrawerManagerSlice from "../../redux/slices/DrawerManagerSlice";
-import EmptyCart from "../cart/EmptyCartDrawer";
-import UserMenuDrawer from "./UserMenuDrawer";
+import DrawerManagerSlice from "../../../redux/slices/DrawerManagerSlice";
+import EmptyCartDrawer from "../cart/EmptyCartDrawer";
+import UserMenuDrawer from "../homeElement/UserMenuDrawer";
 import "./index.css";
+import CartButton from "./CartButton";
+import InputLocation from "../homeElement/InputLocation";
 
-const Header = () => {
+const Header = ({ isShowCartButton, isShowInputLocation, unScroll }) => {
+  const dispatch = useDispatch();
+
   const headerRef = useRef();
 
-  const logoRef = useRef();
+  const logoRedRef = useRef();
 
-  const dispatch = useDispatch();
+  const logoWhiteRef = useRef();
 
   const listLang = [
     { id: "1", lang: "VI", flang: "Tiếng Việt" },
@@ -31,8 +35,8 @@ const Header = () => {
     setLangAnchorEl(e.currentTarget);
   };
 
-  const handleOpenCart = () => {
-    dispatch(DrawerManagerSlice.actions.setOpenCartDrawer(true));
+  const handleCloseCart = () => {
+    dispatch(DrawerManagerSlice.actions.setOpenCartDrawer(false));
   };
 
   const handleSetLang = (e) => {
@@ -49,27 +53,35 @@ const Header = () => {
   const handleChangeHeader = (state) => {
     if (state) {
       headerRef.current.classList.add("scrollHeader");
-      logoRef.current.style.backgroundImage = "url(src/assets/logoRed.png)";
+      logoRedRef.current.classList.remove("hide");
+      logoWhiteRef.current.classList.add("hide");
     } else {
       headerRef.current.classList.remove("scrollHeader");
-      logoRef.current.style.backgroundImage = "url(src/assets/logoWhite.png)";
+      logoRedRef.current.classList.add("hide");
+      logoWhiteRef.current.classList.remove("hide");
     }
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 1) {
-        handleChangeHeader(true);
-      } else {
-        handleChangeHeader(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
+    if (!unScroll) {
+      const handleScroll = () => {
+        if (window.scrollY > 1) {
+          console.log("re-render");
+          handleChangeHeader(true);
+        } else {
+          handleChangeHeader(false);
+        }
+      };
+      window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    } else {
+      handleChangeHeader(true);
+    }
   }, []);
+
   return (
     <Box
       ref={headerRef}
@@ -92,33 +104,49 @@ const Header = () => {
           justifyContent: "space-between",
         }}
       >
-        <Box
-          ref={logoRef}
-          id="logo"
-          sx={{ width: "150px", height: "50px", cursor: "pointer" }}
-          onClick={() => {
-            window.location.href = "/";
-          }}
-        />
+        <Box sx={{ display: "flex" }}>
+          <Box
+            sx={{
+              cursor: "pointer",
+            }}
+            onClick={() => {
+              window.location.href = "/";
+            }}
+          >
+            <img
+              alt="logo"
+              id="logo"
+              src="../../../../public/static/images/logoWhite.png"
+              ref={logoWhiteRef}
+            />
+            <img
+              alt="logo"
+              id="logo"
+              className="hide"
+              src="../../../../public/static/images/logoRed.png"
+              ref={logoRedRef}
+            />
+          </Box>
+          {isShowInputLocation ? <InputLocation /> : <></>}
+        </Box>
+
         <Box
           display={"flex"}
           sx={{
             alignItems: "center",
           }}
         >
-          <IconButton
-            sx={{
-              margin: "10px",
-              backgroundColor: "#f0f0f0dd",
-              "&:hover": { backgroundColor: "#e9e9e9dd" },
-            }}
-            aria-label="open cart"
-            color="primary"
-            onClick={handleOpenCart}
-          >
-            <ShoppingCartOutlinedIcon color="error" />
-          </IconButton>
-          <EmptyCart />
+          {isShowCartButton ? <CartButton /> : <></>}
+          <EmptyCartDrawer>
+            <Button
+              color="error"
+              sx={{ marginTop: "20px" }}
+              endIcon={<EastIcon />}
+              onClick={handleCloseCart}
+            >
+              Countinue shopping
+            </Button>
+          </EmptyCartDrawer>
           <UserBox />
           <UserMenuDrawer />
           <Button

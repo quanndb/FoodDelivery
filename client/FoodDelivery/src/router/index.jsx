@@ -1,9 +1,11 @@
 import { Outlet, createBrowserRouter } from "react-router-dom";
-import Home from "../pages/Home/Home";
-import Login from "../pages/Login/Login";
+import Home from "../pages/Home";
+import Login from "../pages/Login";
 import AuthProvider from "../context/AuthProvider";
 import ProtectedRoute from "./ProtectedRoute";
-import Order from "../pages/Order/Order";
+import Order from "../pages/Order";
+import Restaurants from "../pages/Restaurants";
+import Restaurant from "../pages/Restaurant";
 
 const AuthLayout = () => {
   return (
@@ -31,6 +33,14 @@ export default createBrowserRouter([
           {
             element: <Order />,
             path: "/order",
+          },
+          {
+            element: <Restaurants />,
+            path: "/restaurants",
+          },
+          {
+            element: <Restaurant />,
+            path: "/restaurant",
           },
         ],
       },

@@ -1,8 +1,8 @@
 import { CircularProgress, Container, Paper, Box } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
-import SignUp from "../../components/login/SignUp";
-import LoginComponent from "../../components/login/LoginComponent";
+import SignUp from "../../layouts/components/login/SignUp";
+import LoginComponent from "../../layouts/components/login/LoginComponent";
 import "./index.css";
 import { auth } from "../../firebase/config";
 

@@ -1,6 +1,6 @@
 import { Button, Typography, Box } from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google";
-import { auth } from "../../firebase/config";
+import { auth } from "../../../firebase/config";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import BasicFileds from "./BasicFields";
 

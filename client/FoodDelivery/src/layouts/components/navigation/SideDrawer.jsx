@@ -1,8 +1,7 @@
 import { Drawer, Box } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import { useDispatch, useSelector } from "react-redux";
-import DrawerManagerSlice from "../../redux/slices/DrawerManagerSlice";
-import { cartDrawer } from "../../redux/selectors/DrawerSelector";
+import { useDispatch } from "react-redux";
+import DrawerManagerSlice from "../../../redux/slices/DrawerManagerSlice";
 
 function SideDrawer({ children, open, drawer }) {
   const dispatch = useDispatch();

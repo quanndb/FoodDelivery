@@ -1,13 +1,13 @@
 import { Box, Container } from "@mui/material";
-import Header from "../../components/homeElement/Header";
+import Header from "../../layouts/components/header/Header";
 import "./index.css";
-import FindLocation from "../../components/homeElement/FindLocation";
+import FindLocation from "../../layouts/components/homeElement/FindLocation";
 
 const Home = () => {
   return (
     <>
       <Box id="banner"></Box>
-      <Header />
+      <Header isShowCartButton={true} />
       <Container
         disableGutters={true}
         sx={{
@@ -15,7 +15,7 @@ const Home = () => {
           display: "flex",
           position: "relative",
           justifyContent: "center",
-          height: "100%",
+          height: "2000px",
         }}
       >
         <FindLocation />

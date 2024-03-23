@@ -7,17 +7,28 @@ import {
   ListItemText,
 } from "@mui/material";
 import SideDrawer from "../navigation/SideDrawer";
-import { useSelector } from "react-redux";
-import { userDrawer } from "../../redux/selectors/DrawerSelector";
+import { useDispatch, useSelector } from "react-redux";
+import { userDrawer } from "../../../redux/selectors/DrawerSelector";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import ExitToAppRoundedIcon from "@mui/icons-material/ExitToAppRounded";
-import { auth } from "../../firebase/config";
+import { auth } from "../../../firebase/config";
+import { useNavigate } from "react-router-dom";
+import DrawerManagerSlice from "../../../redux/slices/DrawerManagerSlice";
 
 const UserMenuDrawer = () => {
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
   const open = useSelector(userDrawer);
 
   const handleLogout = () => {
     auth.signOut().then(() => {});
+  };
+
+  const handleGoToOrder = () => {
+    dispatch(DrawerManagerSlice.actions.setOpenUserDrawer(false));
+    navigate("/order");
   };
 
   return (
@@ -25,7 +36,7 @@ const UserMenuDrawer = () => {
       <Box sx={{ marginTop: "50px", width: "100%" }}>
         <Divider />
         <List>
-          <ListItemButton>
+          <ListItemButton onClick={handleGoToOrder}>
             <ListItemIcon>
               <ShoppingCartOutlinedIcon />
             </ListItemIcon>
