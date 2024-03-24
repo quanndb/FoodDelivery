@@ -1,5 +1,4 @@
 import { Box, Typography } from "@mui/material";
-import "./index.css";
 
 const EmptyCartBackground = ({ children }) => {
   return (

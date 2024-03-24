@@ -7,7 +7,6 @@ import { useDispatch } from "react-redux";
 import DrawerManagerSlice from "../../../redux/slices/DrawerManagerSlice";
 import EmptyCartDrawer from "../cart/EmptyCartDrawer";
 import UserMenuDrawer from "../homeElement/UserMenuDrawer";
-import "./index.css";
 import CartButton from "./CartButton";
 import InputLocation from "../homeElement/InputLocation";
 
@@ -116,14 +115,14 @@ const Header = ({ isShowCartButton, isShowInputLocation, unScroll }) => {
             <img
               alt="logo"
               id="logo"
-              src="../../../../public/static/images/logoWhite.png"
+              src="/static/images/logoWhite.png"
               ref={logoWhiteRef}
             />
             <img
               alt="logo"
               id="logo"
               className="hide"
-              src="../../../../public/static/images/logoRed.png"
+              src="/static/images/logoRed.png"
               ref={logoRedRef}
             />
           </Box>

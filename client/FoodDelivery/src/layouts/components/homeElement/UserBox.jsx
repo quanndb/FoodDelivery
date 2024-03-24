@@ -1,5 +1,5 @@
-import { Avatar, Box, Menu, MenuItem, Typography } from "@mui/material";
-import { useContext, useState } from "react";
+import { Avatar, Box } from "@mui/material";
+import { useContext } from "react";
 import { AuthContext } from "../../../context/AuthProvider";
 import { useDispatch } from "react-redux";
 import DrawerManagerSlice from "../../../redux/slices/DrawerManagerSlice";

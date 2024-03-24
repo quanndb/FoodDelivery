@@ -50,9 +50,9 @@ const FindLocation = () => {
             width: "90%",
             marginTop: "20px",
             height: "50px",
-            backgroundColor: "#e95959",
+            backgroundColor: "var(--primary-color)",
             "&:hover": {
-              backgroundColor: "#e95959",
+              backgroundColor: "var(--primary-color)",
             },
           }}
           variant="contained"

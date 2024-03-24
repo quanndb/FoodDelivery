@@ -1,7 +1,7 @@
 import { Box, Button } from "@mui/material";
 import Header from "../../layouts/components/header/Header";
 import EmptyCartBackground from "../../layouts/components/cart/EmptyCartBackground";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Order = () => {
   const navigate = useNavigate();
