@@ -43,6 +43,7 @@ const Footer = () => {
         />
 
         <Box
+          className="footerContent"
           sx={{
             display: "flex",
             justifyContent: "space-between",
@@ -52,18 +53,21 @@ const Footer = () => {
           <Box>
             <Typography
               variant="h6"
+              noWrap
               sx={{ height: "52px", alignItems: "center" }}
             >
               About FDFood
             </Typography>
             <Typography
               variant="h6"
+              noWrap
               sx={{ height: "52px", alignItems: "center" }}
             >
               About FD
             </Typography>
             <Typography
               variant="h6"
+              noWrap
               sx={{ height: "52px", alignItems: "center" }}
             >
               Blog
@@ -72,12 +76,14 @@ const Footer = () => {
           <Box>
             <Typography
               variant="h6"
+              noWrap
               sx={{ height: "52px", alignItems: "center" }}
             >
               Start a restaurant with FDFood
             </Typography>
             <Typography
               variant="h6"
+              noWrap
               sx={{ height: "52px", alignItems: "center" }}
             >
               Become a FDFood's driver
@@ -86,12 +92,14 @@ const Footer = () => {
           <Box>
             <Typography
               variant="h6"
+              noWrap
               sx={{ height: "52px", alignItems: "center" }}
             >
               Start a restaurant with FDFood
             </Typography>
             <Typography
               variant="h6"
+              noWrap
               sx={{ height: "52px", alignItems: "center" }}
             >
               Become a FDFood's driver
@@ -100,22 +108,24 @@ const Footer = () => {
           <Box>
             <Typography
               variant="h6"
+              noWrap
               sx={{ height: "52px", alignItems: "center" }}
             >
               Support center
             </Typography>
             <Typography
               variant="h6"
+              noWrap
               sx={{ height: "52px", alignItems: "center" }}
             >
               Frequently asked questions
             </Typography>
           </Box>
-          <Box>
-            <FacebookIcon sx={{ marginRight: "20px" }} />
-            <InstagramIcon sx={{ marginRight: "20px" }} />
-            <TwitterIcon />
-          </Box>
+        </Box>
+        <Box sx={{ margin: "10px 20px 10px 0px" }}>
+          <FacebookIcon sx={{ marginRight: "20px" }} />
+          <InstagramIcon sx={{ marginRight: "20px" }} />
+          <TwitterIcon />
         </Box>
 
         <Divider
@@ -127,16 +137,27 @@ const Footer = () => {
           }}
         />
 
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            flexWrap: "wrap",
+          }}
+        >
           <Box>
             <img
-              style={{ marginRight: "24px" }}
+              style={{ margin: "0px 24px 10px 0px" }}
               src="/static/images/logo-appstore.svg"
             />
-            <img src="/static/images/logo-playstore.svg" />
+            <img
+              style={{ margin: "0px 24px 10px 0px" }}
+              src="/static/images/logo-playstore.svg"
+            />
           </Box>
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Typography sx={{ marginRight: "32px" }}>@ 2024 FDFood</Typography>
+            <Typography noWrap sx={{ marginRight: "32px" }}>
+              @ 2024 FDFood
+            </Typography>
             <Box sx={{ display: "flex", alignItems: "center" }}>
               <Typography>Terms</Typography>
               <span style={{ margin: "8px" }}>•</span>

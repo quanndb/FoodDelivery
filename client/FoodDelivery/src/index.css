@@ -50,3 +50,16 @@
 .hide {
   display: none;
 }
+
+@media screen and (max-width: 992px) {
+  .footerContent {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.footerContent h6 {
+  height: 52px;
+  align-items: center;
+  margin: 10px 20px 10px 0px;
+}
