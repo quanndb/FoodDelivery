@@ -65,7 +65,6 @@ const Header = ({ isShowCartButton, isShowInputLocation, unScroll }) => {
     if (!unScroll) {
       const handleScroll = () => {
         if (window.scrollY > 1) {
-          console.log("re-render");
           handleChangeHeader(true);
         } else {
           handleChangeHeader(false);
@@ -91,7 +90,7 @@ const Header = ({ isShowCartButton, isShowInputLocation, unScroll }) => {
         padding: "10px 0px 10px 0px",
         position: "fixed",
         top: 0,
-        zIndex: 1,
+        zIndex: 2,
       }}
     >
       <Box

@@ -40,7 +40,7 @@ export default createBrowserRouter([
           },
           {
             element: <Restaurant />,
-            path: "/restaurant",
+            path: "/restaurant/:restaurantId",
           },
         ],
       },

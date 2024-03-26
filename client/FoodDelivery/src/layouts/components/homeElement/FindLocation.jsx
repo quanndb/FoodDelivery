@@ -22,9 +22,10 @@ const FindLocation = () => {
           width: "360px",
           minHeight: "398px",
           position: "absolute",
-          top: "-32vh",
+          top: "-53vh",
           left: 0,
           marginLeft: "20px",
+          zIndex: 1,
         }}
         elevation={2}
       >
