@@ -85,7 +85,7 @@ const Header = ({ isShowCartButton, isShowInputLocation, unScroll }) => {
       ref={headerRef}
       display={"flex"}
       sx={{
-        width: "100%",
+        width: "95%",
         justifyContent: "center",
         padding: "10px 0px 10px 0px",
         position: "fixed",
