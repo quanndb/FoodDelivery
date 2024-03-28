@@ -1,10 +1,13 @@
-import { Box, IconButton, Typography } from "@mui/material";
+import { Box, Button, IconButton, Typography } from "@mui/material";
 import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 import "swiper/css";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import FoodPromoItem from "./FoodPromoItem";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Pagination } from "swiper/modules";
+import "swiper/css/pagination";
 
 const data = [
   {
@@ -83,34 +86,74 @@ const data = [
   },
 ];
 
-const FooPromoGroup = ({}) => {
-  const [preBtn, setPreBtn] = useState(false);
-  const [nextBtn, setNextBtn] = useState(true);
-
+const FoodPromoBtn = ({ preBtn, nextBtn }) => {
   const swiper = useSwiper();
   return (
-    <Box>
-      <IconButton
-        sx={{ height: "40px" }}
-        onClick={() => {
-          swiper.slidePrev();
-        }}
-      >
-        <ArrowBackIosRoundedIcon />
-      </IconButton>
-      <IconButton
-        sx={{ height: "40px" }}
-        onClick={() => {
-          swiper.slideNext();
-        }}
-      >
-        <ArrowForwardIosRoundedIcon />
-      </IconButton>
+    <Box
+      className={"promoBtn"}
+      sx={{
+        display: "flex",
+        justifyContent: "space-between",
+        width: "100%",
+        position: "absolute",
+        top: "50%",
+      }}
+    >
+      {preBtn ? (
+        <IconButton
+          onClick={() => {
+            swiper.slidePrev();
+          }}
+        >
+          <ArrowBackIosRoundedIcon />
+        </IconButton>
+      ) : (
+        <div style={{ width: "40px", height: "40px" }} />
+      )}
+      {nextBtn ? (
+        <IconButton
+          onClick={() => {
+            swiper.slideNext();
+          }}
+        >
+          <ArrowForwardIosRoundedIcon />
+        </IconButton>
+      ) : (
+        <div style={{ width: "40px", height: "40px" }} />
+      )}
     </Box>
   );
 };
 
+const SeeMoreBtn = () => {
+  const navigate = useNavigate();
+
+  const handleGoToPromos = () => {
+    navigate("/promos-delivery");
+  };
+
+  return (
+    <Button
+      sx={{
+        marginTop: "50px",
+        width: "93%",
+        height: "50px",
+        fontSize: "18px",
+        fontWeight: "600",
+      }}
+      color="error"
+      variant="outlined"
+      onClick={handleGoToPromos}
+    >
+      See more promotions
+    </Button>
+  );
+};
+
 const FoodPromo = () => {
+  const [preBtn, setPreBtn] = useState(false);
+  const [nextBtn, setNextBtn] = useState(true);
+
   return (
     <Box sx={{ width: "100%", position: "relative" }}>
       <Typography
@@ -133,23 +176,57 @@ const FoodPromo = () => {
           43/53 Ngọa Long, P.Minh Khai, Q.Bắc Từ Liêm, Hà Nội, 10000, Vietnam
         </span>
       </Typography>
-      <Box sx={{ display: "flex", alignItems: "center" }}>
+
+      <Box sx={{ display: "flex", alignItems: "center", position: "relative" }}>
         <Swiper
+          modules={[Pagination]}
+          pagination={{ clickable: true }}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            position: "static",
+            margin: "0px 30px",
+          }}
+          onSlideChange={(e) => {
+            setNextBtn(!e.isEnd);
+            setPreBtn(!e.isBeginning);
+          }}
           slidesPerView={4}
           spaceBetween={0}
-          onSwiper={(swiper) => console.log(swiper)}
+          breakpoints={{
+            "@0.0": {
+              slidesPerView: "auto",
+            },
+            "@0.6": {
+              slidesPerView: "2",
+            },
+            "@0.8": {
+              slidesPerView: "3",
+            },
+            "@1.0": {
+              slidesPerView: "4",
+            },
+          }}
         >
-          {data.map((item) => (
-            <SwiperSlide
-              style={{ height: "500px", padding: "10px" }}
-              key={item.id}
-            >
-              <FoodPromoItem item={item} />
-            </SwiperSlide>
-          ))}
-          <FooPromoGroup />
+          {data.map((item) => {
+            return (
+              <SwiperSlide
+                style={{
+                  padding: "10px",
+                  height: "auto",
+                  paddingBottom: "5px",
+                }}
+                key={item.id}
+              >
+                <FoodPromoItem item={item} />
+              </SwiperSlide>
+            );
+          })}
+          <FoodPromoBtn preBtn={preBtn} nextBtn={nextBtn} />
         </Swiper>
       </Box>
+
+      <SeeMoreBtn />
     </Box>
   );
 };

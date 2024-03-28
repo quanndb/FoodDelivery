@@ -18,9 +18,10 @@ const FindLocation = () => {
   return (
     <>
       <Paper
+        className="findLocation"
         sx={{
           width: "360px",
-          minHeight: "398px",
+          paddingBottom: "30px",
           position: "absolute",
           top: "-53vh",
           left: 0,

@@ -3,6 +3,8 @@ import Header from "../../layouts/components/header/Header";
 import FindLocation from "../../layouts/components/homeElement/FindLocation";
 import Footer from "../../layouts/components/footer/Footer";
 import FoodPromo from "../../layouts/components/homeElement/FoodPromo";
+import FoodType from "../../layouts/components/homeElement/FoodType";
+import HomeInfo from "../../layouts/components/homeElement/HomeInfo";
 
 const Home = () => {
   return (
@@ -17,13 +19,15 @@ const Home = () => {
         sx={{
           maxWidth: "1200px",
           display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
           position: "relative",
-          justifyContent: "center",
-          height: "800px",
         }}
       >
         <FindLocation />
         <FoodPromo />
+        <FoodType />
+        <HomeInfo />
       </Container>
       <Footer />
     </Box>

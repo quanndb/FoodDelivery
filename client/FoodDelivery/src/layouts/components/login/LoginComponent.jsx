@@ -19,7 +19,6 @@ const LoginComponent = ({ setIsSignUp, setIsLoading }) => {
   return (
     <Box
       sx={{
-        maxHeight: "450px",
         overflowY: "auto",
       }}
     >

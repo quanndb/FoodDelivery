@@ -6,7 +6,7 @@ const SignUp = ({ setIsSignUp, setIsLoading }) => {
     setIsLoading(true);
   };
   return (
-    <Box sx={{ maxHeight: "450px", overflowY: "auto" }}>
+    <Box sx={{ overflowY: "auto" }}>
       <Typography variant="h4" sx={{ margin: "30px 0", fontWeight: "500" }}>
         Sign up to join us
       </Typography>
@@ -25,19 +25,16 @@ const SignUp = ({ setIsSignUp, setIsLoading }) => {
           Login
         </Button>
       </Typography>
-      <Typography
-        sx={{
-          width: "60%",
-          frontWeight: "h7",
-          marginBottom: "30px",
-          padding: 5,
-        }}
-        variant="caption"
-      >
-        Việc bạn tiếp tục sử dụng trang web này đồng nghĩa bạn đồng ý với{" "}
-        <a href="http://localhost:5173/login">điều khoản sử dụng</a> của chúng
-        tôi
-      </Typography>
+      <Box sx={{ width: "80%", margin: "auto", height: "70px" }}>
+        <Typography
+          sx={{ marginBottom: "50px" }}
+          variant="caption"
+          textAlign={"center"}
+        >
+          Việc bạn tiếp tục sử dụng trang web này đồng nghĩa bạn đồng ý với{" "}
+          <a href="/">điều khoản sử dụng</a> của chúng tôi
+        </Typography>
+      </Box>
     </Box>
   );
 };

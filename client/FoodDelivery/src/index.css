@@ -8,13 +8,14 @@
   --primary-color: #e95959;
 }
 
-:root {
-  --primary-color: #e95959;
-}
-
 #root {
   width: 100%;
   height: 100vh;
+}
+
+::selection {
+  background: var(--primary-color);
+  color: #ffff;
 }
 
 #login-container {
@@ -55,6 +56,18 @@
   display: none;
 }
 
+.foodItem:hover {
+  opacity: 0.8;
+  background-color: #f4eaea;
+  scale: 101%;
+  transition: all ease 0.3s;
+}
+
+.foodImg img:hover {
+  scale: 105%;
+  transition: all ease 0.3s;
+}
+
 @media screen and (min-width: 992px) {
 }
 
@@ -65,7 +78,39 @@
   }
 }
 
+@media screen and (max-width: 768px) {
+  #banner {
+    display: none;
+  }
+  .findLocation {
+    position: static !important;
+    width: 100% !important;
+    margin: -20px 20px 0px !important;
+  }
+}
+
 @media screen and (min-width: 576px) and (max-width: 768px) {
+  #banner {
+    display: none;
+  }
+  .findLocation {
+    position: static !important;
+    width: 100% !important;
+  }
 }
 @media screen and (max-width: 576px) {
+  .promoBtn {
+    display: none !important;
+  }
+  .promoImg {
+    /* height: 100px !important; */
+  }
+}
+
+.swiper-pagination {
+  top: 100% !important;
+
+  .swiper-pagination-bullet-active {
+    background-color: var(--primary-color);
+  }
 }

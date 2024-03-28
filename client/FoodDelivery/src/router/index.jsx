@@ -6,6 +6,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import Order from "../pages/Order";
 import Restaurants from "../pages/Restaurants";
 import Restaurant from "../pages/Restaurant";
+import PromoDelivery from "../pages/PromoDelivery";
 
 const AuthLayout = () => {
   return (
@@ -41,6 +42,10 @@ export default createBrowserRouter([
           {
             element: <Restaurant />,
             path: "/restaurant/:restaurantId",
+          },
+          {
+            element: <PromoDelivery />,
+            path: "/promos-delivery",
           },
         ],
       },

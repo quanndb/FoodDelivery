@@ -44,8 +44,8 @@ const PromoTag = () => {
           borderLeft: "3px solid transparent",
           margin: "0",
           position: "absolute",
-          zIndex: "-1",
-          width: "80%",
+          zIndex: "0",
+          width: "7px",
         }}
       />
     </Box>
@@ -61,6 +61,7 @@ const FoodPromoItem = ({ item }) => {
   };
   return (
     <Paper
+      className="foodItem"
       component={"a"}
       href={`/restaurant/${item.id}`}
       elevation={3}
@@ -73,20 +74,32 @@ const FoodPromoItem = ({ item }) => {
         textDecoration: "none",
         color: "#000",
         position: "relative",
-        height: "100%",
+        height: "100% !important",
+        backgroundColor: "#fff",
       }}
       onClick={handleGotoRestaurant}
     >
-      <img
-        src={item.url}
+      <div
+        className="foodImg"
         style={{
+          overflow: "hidden",
           width: "100%",
-          objectFit: "cover",
-          borderRadius: "2px",
-          height: "180px",
+          height: "150px",
           marginTop: "10px",
+          borderRadius: "8px",
+          backgroundColor: "#ddd",
         }}
-      />
+      >
+        <img
+          src={item.url}
+          style={{
+            width: "100%",
+            objectFit: "cover",
+            borderRadius: "8px",
+            height: "100%",
+          }}
+        />
+      </div>
       <Typography
         variant="h6"
         sx={{ margin: "16px 0px 12px", fontWeight: "600" }}
