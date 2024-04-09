@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Typography, Divider } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 import { useState } from "react";
 
@@ -31,6 +31,33 @@ const data = [
     title: "Nhiều quà tặng hơn",
     infor:
       "Tích điểm FDRewards cho mỗi đơn hàng của bạn và sử dụng điểm thưởng để đổi lấy nhiều ưu đãi hơn.",
+  },
+];
+
+const questions = [
+  {
+    id: 1,
+    title: "Does FDFood provide food delivery 24x7?",
+    content:
+      "We understand only one language - food, so yes, we do.. Please note, though we are here as your 24x7 food partners, few of our listed restaurants may have late-night food delivery restrictions or may be unavailable for orders. But we have listed the ones that love your late-night binging in our Late Night Delivery Section.",
+  },
+  {
+    id: 2,
+    title: "Does FDFood accept Cash?",
+    content:
+      "Sure, we do! FDFood accepts all forms of payments for food delivery services, including cash on delivery.",
+  },
+  {
+    id: 3,
+    title: "How much does FDFood charge for delivery?",
+    content:
+      "Our delivery fee depends on a lot of operational factors like distance from your location to the restaurant. You can check the exact amount you are paying as delivery charges before checking out on the app. There is also a “Free Delivery” section that lists restaurants near you that don’t charge for delivery.",
+  },
+  {
+    id: 4,
+    title: "Does FDFood have a minimum order?",
+    content:
+      "Yes! But you can pay the difference if your order is less than the minimum order amount.",
   },
 ];
 
@@ -83,14 +110,14 @@ const FrequentlyQuestion = () => {
       <Typography
         variant="h2"
         sx={{
-          fontSize: "35px",
+          fontSize: "30px",
           fontWeight: "600",
           marginBottom: "16px",
         }}
       >
         What is FDFood?
       </Typography>
-      <Typography marginBottom={"30px"} width={"95%"}>
+      <Typography marginBottom={"5px"} width={"95%"}>
         FDFood is the fastest Food Delivery service in Vietnam. We have curated
         all your favorite dishes, restaurants, and cuisines to help you grab
         your food in the easiest, quickest way possible. Find and order your
@@ -100,6 +127,27 @@ const FrequentlyQuestion = () => {
         here to satisfy your hunger with a wide selection of merchant partners
         in Vietnam.
       </Typography>
+    </Box>
+  );
+};
+
+const ListQuestions = () => {
+  return (
+    <Box sx={{ width: "97%", margin: "auto" }}>
+      {questions.map((item) => (
+        <Box key={item.id} margin={"30px 0px"}>
+          <Divider />
+          <Typography
+            variant="h5"
+            fontWeight={"600"}
+            fontSize={"30px"}
+            sx={{ margin: "30px 0px 16px 0px" }}
+          >
+            {item.title}
+          </Typography>
+          <Typography>{item.content}</Typography>
+        </Box>
+      ))}
     </Box>
   );
 };
@@ -123,7 +171,7 @@ const HomeInfo = () => {
       <WhyChoose />
       <FrequentlyQuestion />
       {readMore ? (
-        <FrequentlyQuestion />
+        <ListQuestions />
       ) : (
         <Button
           variant="outlined"

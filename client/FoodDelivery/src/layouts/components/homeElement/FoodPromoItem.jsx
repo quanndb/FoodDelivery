@@ -3,7 +3,6 @@ import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
 import ScheduleIcon from "@mui/icons-material/Schedule";
 import { useNavigate } from "react-router-dom";
-import { useSwiper } from "swiper/react";
 
 const Infor = ({ content }) => {
   return (

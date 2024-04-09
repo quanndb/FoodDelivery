@@ -5,11 +5,12 @@ import Footer from "../../layouts/components/footer/Footer";
 import FoodPromo from "../../layouts/components/homeElement/FoodPromo";
 import FoodType from "../../layouts/components/homeElement/FoodType";
 import HomeInfo from "../../layouts/components/homeElement/HomeInfo";
+import BannerGroup from "../../layouts/components/homeElement/BannerGroup";
 
 const Home = () => {
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>
-      <Box id="banner"></Box>
+      <BannerGroup />
       <Divider
         sx={{ margin: "80px 0px 16px 0px", border: "1px solid #e5e9f0" }}
       />

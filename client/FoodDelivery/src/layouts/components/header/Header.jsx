@@ -10,7 +10,13 @@ import UserMenuDrawer from "../homeElement/UserMenuDrawer";
 import CartButton from "./CartButton";
 import InputLocation from "../homeElement/InputLocation";
 
-const Header = ({ isShowCartButton, isShowInputLocation, unScroll }) => {
+const Header = ({
+  isShowCartButton,
+  isShowInputLocation,
+  unScroll,
+  children,
+  style,
+}) => {
   const dispatch = useDispatch();
 
   const headerRef = useRef();
@@ -83,14 +89,17 @@ const Header = ({ isShowCartButton, isShowInputLocation, unScroll }) => {
   return (
     <Box
       ref={headerRef}
-      display={"flex"}
       sx={{
+        display: "flex",
         width: "100%",
-        justifyContent: "center",
-        padding: "10px 0px 10px 0px",
         position: "fixed",
-        top: 0,
+        top: "0",
+        justifyContent: "center",
+        padding: "10px 0px 0px 0px",
+        flexDirection: "column",
+        alignItems: "center",
         zIndex: 2,
+        boxShadow: style?.boxShadow,
       }}
     >
       <Box
@@ -106,6 +115,7 @@ const Header = ({ isShowCartButton, isShowInputLocation, unScroll }) => {
           <Box
             sx={{
               cursor: "pointer",
+              marginRight: "50px",
             }}
             onClick={() => {
               window.location.href = "/";
@@ -180,6 +190,7 @@ const Header = ({ isShowCartButton, isShowInputLocation, unScroll }) => {
           </Menu>
         </Box>
       </Box>
+      {children}
     </Box>
   );
 };
