@@ -57,6 +57,7 @@ const InputLocation = () => {
         width: "90%",
         margin: "auto",
         border: "1px solid transparent",
+        marginBottom: "15px",
       }}
     >
       <IconButton sx={{ p: "10px" }} aria-label="menu">
