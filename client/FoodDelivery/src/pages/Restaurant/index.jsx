@@ -25,7 +25,7 @@ import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
 import ScheduleIcon from "@mui/icons-material/Schedule";
 import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from "@mui/icons-material/Add";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const menu = [
   {
@@ -448,11 +448,12 @@ const PromoDialog = ({ open, setOpen }) => {
   );
 };
 
-const TabFood = () => {
-  const [value, setValue] = useState(0);
-
+const TabFood = ({ value, setValue, listElementRef, setIsScroll }) => {
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    listElementRef.current[newValue].scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
   return (
     <Box
@@ -481,7 +482,7 @@ const TabFood = () => {
   );
 };
 
-const ExtendedHeader = () => {
+const ExtendedHeader = ({ value, setValue, listElementRef, setIsScroll }) => {
   const [isClosed, setIsClosed] = useState(true);
 
   const [open, setOpen] = useState(false);
@@ -594,7 +595,12 @@ const ExtendedHeader = () => {
             </Typography>
           </Box>
         </Box>
-        <TabFood />
+        <TabFood
+          value={value}
+          setValue={setValue}
+          listElementRef={listElementRef}
+          setIsScroll={setIsScroll}
+        />
       </Container>
     </Box>
   );
@@ -692,12 +698,41 @@ const Product = ({ data }) => {
   );
 };
 
-const Section = () => {
+const Section = ({ value, setValue, listElementRef, isScroll }) => {
+  useEffect(() => {
+    if (!isScroll) {
+      const isInViewport = (el) => {
+        const rect = el.getBoundingClientRect();
+        return (
+          rect.top < 245 &&
+          rect.left >= 0 &&
+          rect.bottom <=
+            (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.right <=
+            (window.innerWidth || document.documentElement.clientWidth)
+        );
+      };
+
+      const handleScroll = () => {
+        listElementRef.current.forEach((el, index) => {
+          if (isInViewport(el)) {
+            setValue(index);
+          }
+        });
+      };
+      window.addEventListener("scroll", handleScroll);
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, []);
+
   return (
     <>
-      {menu.map((item) => (
+      {menu.map((item, index) => (
         <Box key={item.id}>
           <Typography
+            ref={(item) => (listElementRef.current[index] = item)}
             sx={{
               textAlign: "left",
               fontSize: "30px",
@@ -720,6 +755,12 @@ const Section = () => {
 };
 
 const Restaurant = () => {
+  const [value, setValue] = useState(0);
+
+  const listElementRef = useRef([]);
+
+  const [isScroll, setIsScroll] = useState(false);
+
   return (
     <>
       <Box sx={{ backgroundColor: "#f8f8f8" }}>
@@ -729,11 +770,21 @@ const Restaurant = () => {
           isShowCartButton={true}
           style={{ boxShadow: "none" }}
         />
-        <ExtendedHeader />
+        <ExtendedHeader
+          value={value}
+          setValue={setValue}
+          listElementRef={listElementRef}
+          setIsScroll={setIsScroll}
+        />
         <Container
           sx={{ maxWidth: "1300px", marginTop: "72px", paddingBottom: "72px" }}
         >
-          <Section />
+          <Section
+            value={value}
+            setValue={setValue}
+            listElementRef={listElementRef}
+            isScroll={isScroll}
+          />
         </Container>
       </Box>
       <Footer />
