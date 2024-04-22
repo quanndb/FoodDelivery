@@ -1,11 +1,11 @@
 import { Box, Container, Divider } from "@mui/material";
-import Header from "../../layouts/components/header/Header";
-import FindLocation from "../../layouts/components/homeElement/FindLocation";
-import Footer from "../../layouts/components/footer/Footer";
-import FoodPromo from "../../layouts/components/homeElement/FoodPromo";
-import FoodType from "../../layouts/components/homeElement/FoodType";
-import HomeInfo from "../../layouts/components/homeElement/HomeInfo";
-import BannerGroup from "../../layouts/components/homeElement/BannerGroup";
+import Header from "src/layouts/components/header/Header";
+import FindLocation from "src/layouts/components/homeElement/FindLocation";
+import Footer from "src/layouts/components/footer/Footer";
+import FoodPromo from "src/layouts/components/homeElement/FoodPromo";
+import FoodType from "src/layouts/components/homeElement/FoodType";
+import HomeInfo from "src/layouts/components/homeElement/HomeInfo";
+import BannerGroup from "src/layouts/components/homeElement/BannerGroup";
 
 const Home = () => {
   return (

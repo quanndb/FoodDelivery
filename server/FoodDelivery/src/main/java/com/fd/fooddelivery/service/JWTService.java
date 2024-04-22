@@ -52,6 +52,8 @@ public class JWTService {
         return Jwts
                 .builder()
                 .subject(account.getUsername())
+                .claim("role",account.getRole())
+                .claim("name",account.getFirstName()+" "+account.getLastName())
                 .issuedAt(new Date(System.currentTimeMillis()))
                 .expiration(new Date(System.currentTimeMillis() + 60*60*1000))
                 .signWith(getSignInKey())

@@ -78,7 +78,7 @@ const WhyChoose = () => {
       </Typography>
       <Box sx={{ margin: "0px 20px" }}>
         {data.map((item) => (
-          <Box display={"flex"} margin={"10px 0px"}>
+          <Box display={"flex"} margin={"10px 0px"} key={item.id}>
             <CheckIcon color="error" sx={{ marginRight: "10px" }} />
             <Typography>
               <span style={{ fontWeight: "600" }}>{item.title}</span>

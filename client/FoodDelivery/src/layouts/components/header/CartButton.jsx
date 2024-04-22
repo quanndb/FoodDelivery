@@ -1,7 +1,7 @@
 import { IconButton } from "@mui/material";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { useDispatch } from "react-redux";
-import DrawerManagerSlice from "../../../redux/slices/DrawerManagerSlice";
+import DrawerManagerSlice from "src/redux/slices/DrawerManagerSlice";
 
 const CartButton = () => {
   const dispatch = useDispatch();
@@ -16,6 +16,7 @@ const CartButton = () => {
         margin: "10px",
         backgroundColor: "#f0f0f0dd",
         "&:hover": { backgroundColor: "#e9e9e9dd" },
+        padding: "12px",
       }}
       aria-label="open cart"
       color="primary"

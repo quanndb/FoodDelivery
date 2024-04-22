@@ -8,9 +8,9 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import { Container } from "@mui/material";
-import "./firebase/config.jsx";
+import "src/firebase/config.jsx";
 import { Provider } from "react-redux";
-import store from "./redux/store.jsx";
+import store from "src/redux/store.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

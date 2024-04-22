@@ -1,8 +1,9 @@
-import { Avatar, Box } from "@mui/material";
+import { Avatar, Box, Typography } from "@mui/material";
 import { useContext } from "react";
-import { AuthContext } from "../../../context/AuthProvider";
+import { AuthContext } from "src/context/AuthProvider";
 import { useDispatch } from "react-redux";
-import DrawerManagerSlice from "../../../redux/slices/DrawerManagerSlice";
+import DrawerManagerSlice from "src/redux/slices/DrawerManagerSlice";
+import { jwtDecode } from "jwt-decode";
 
 const UserBox = () => {
   const dispatch = useDispatch();
@@ -14,9 +15,23 @@ const UserBox = () => {
   const handleOpenUserDrawer = () => {
     dispatch(DrawerManagerSlice.actions.setOpenUserDrawer(true));
   };
+
+  const accessToken = localStorage.accessToken;
   return (
     <>
-      <Box sx={{ display: "flex" }}>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          cursor: "pointer",
+          padding: "5px 5px",
+          backgroundColor: "#eee",
+          borderRadius: "65px",
+          opacity: "0.8",
+          "&:hover": { opacity: "0.6" },
+        }}
+        onClick={handleOpenUserDrawer}
+      >
         <Avatar
           alt="avata"
           src={photoURL}
@@ -25,13 +40,16 @@ const UserBox = () => {
             width: "40px",
             height: "40px",
             border: "solid 1px #f0f0f0dd",
-            margin: "0px 10px 0px 10px",
+            margin: "0px 10px 0px 0px",
             cursor: "pointer",
             "&:hover": {
               opacity: "0.7",
             },
           }}
         />
+        <Typography variant="h6" paddingRight={"10px"} color={"error"}>
+          {accessToken ? jwtDecode(accessToken).name : <></>}
+        </Typography>
       </Box>
     </>
   );

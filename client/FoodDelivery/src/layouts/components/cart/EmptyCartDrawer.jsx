@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import SideDrawer from "../navigation/SideDrawer";
-import { cartDrawer } from "../../../redux/selectors/DrawerSelector";
+import { cartDrawer } from "src/redux/selectors/DrawerSelector";
 import EmptycartBackground from "./EmptyCartBackground";
 
 const EmptyCartDrawer = ({ children }) => {

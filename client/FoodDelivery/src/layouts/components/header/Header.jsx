@@ -1,10 +1,10 @@
-import { Box, Button, Menu, MenuItem } from "@mui/material";
+import { Box, Button, Menu, MenuItem, Typography } from "@mui/material";
 import UserBox from "../homeElement/UserBox";
 import EastIcon from "@mui/icons-material/East";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import DrawerManagerSlice from "../../../redux/slices/DrawerManagerSlice";
+import DrawerManagerSlice from "src/redux/slices/DrawerManagerSlice";
 import EmptyCartDrawer from "../cart/EmptyCartDrawer";
 import UserMenuDrawer from "../homeElement/UserMenuDrawer";
 import CartButton from "./CartButton";
@@ -164,12 +164,16 @@ const Header = ({
               margin: "10px",
               backgroundColor: "#f0f0f0dd",
               "&:hover": { backgroundColor: "#e9e9e9dd" },
+              borderRadius: "65px",
+              padding: "12px",
             }}
             color="error"
             disableElevation
             variant="text"
           >
-            {lang}
+            <Typography variant="h6" fontSize={"16px"}>
+              {lang}
+            </Typography>
           </Button>
           <Menu
             open={openListLang}

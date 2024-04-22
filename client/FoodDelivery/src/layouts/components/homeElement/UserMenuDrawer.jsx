@@ -8,12 +8,12 @@ import {
 } from "@mui/material";
 import SideDrawer from "../navigation/SideDrawer";
 import { useDispatch, useSelector } from "react-redux";
-import { userDrawer } from "../../../redux/selectors/DrawerSelector";
+import { userDrawer } from "src/redux/selectors/DrawerSelector";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import ExitToAppRoundedIcon from "@mui/icons-material/ExitToAppRounded";
-import { auth } from "../../../firebase/config";
+import { auth } from "src/firebase/config";
 import { useNavigate } from "react-router-dom";
-import DrawerManagerSlice from "../../../redux/slices/DrawerManagerSlice";
+import DrawerManagerSlice from "src/redux/slices/DrawerManagerSlice";
 
 const UserMenuDrawer = () => {
   const dispatch = useDispatch();

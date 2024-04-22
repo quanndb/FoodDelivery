@@ -1,5 +1,5 @@
-import Header from "../../layouts/components/header/Header";
-import Footer from "../../layouts/components/footer/Footer";
+import Header from "src/layouts/components/header/Header";
+import Footer from "src/layouts/components/footer/Footer";
 
 import {
   Box,

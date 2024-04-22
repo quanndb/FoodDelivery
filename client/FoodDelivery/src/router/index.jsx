@@ -1,12 +1,12 @@
 import { Outlet, createBrowserRouter } from "react-router-dom";
-import Home from "../pages/Home";
-import Login from "../pages/Login";
-import AuthProvider from "../context/AuthProvider";
+import Home from "src/pages/Home";
+import Login from "src/pages/Login";
+import AuthProvider from "src/context/AuthProvider";
 import ProtectedRoute from "./ProtectedRoute";
-import Order from "../pages/Order";
-import Restaurants from "../pages/Restaurants";
-import Restaurant from "../pages/Restaurant";
-import PromoDelivery from "../pages/PromoDelivery";
+import Order from "src/pages/Order";
+import Restaurants from "src/pages/Restaurants";
+import Restaurant from "src/pages/Restaurant";
+import PromoDelivery from "src/pages/PromoDelivery";
 
 const AuthLayout = () => {
   return (
