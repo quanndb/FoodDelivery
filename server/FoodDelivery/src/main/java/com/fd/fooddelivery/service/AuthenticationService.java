@@ -27,18 +27,23 @@ public class AuthenticationService {
     }
 
     public String register(Account request){
-        Account newUser = new Account();
-        newUser.setUsername(request.getUsername());
-        newUser.setPassword(passwordEncoder.encode(request.getPassword()));
-        newUser.setFirstName(request.getFirstName());
-        newUser.setLastName(request.getLastName());
-        newUser.setRole(request.getRole());
-        newUser.setEmail(request.getEmail());
-        newUser.setPhone(request.getPhone());
-        newUser.setAvatar(request.getAvatar());
-        newUser = accountRepository.save(newUser);
-
         String res = "fail";
+        Account newUser = new Account();
+        if(accountRepository.findAccountByUsername(request.getUsername()).get(0).getId()>0){
+            res = "username already exists";
+        }
+        else {
+            newUser.setUsername(request.getUsername());
+            newUser.setPassword(passwordEncoder.encode(request.getPassword()));
+            newUser.setFirstName(request.getFirstName());
+            newUser.setLastName(request.getLastName());
+            newUser.setRole(request.getRole());
+            newUser.setEmail(request.getEmail());
+            newUser.setPhone(request.getPhone());
+            newUser.setAvatar(request.getAvatar());
+            newUser = accountRepository.save(newUser);
+        }
+
         if(newUser.getId()>0)  res= "ok";
 
         return (res);

@@ -34,7 +34,7 @@ const UserBox = () => {
       >
         <Avatar
           alt="avata"
-          src={photoURL}
+          src={accessToken ? jwtDecode(accessToken).picture : null}
           onClick={handleOpenUserDrawer}
           sx={{
             width: "40px",

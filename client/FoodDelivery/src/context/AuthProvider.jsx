@@ -24,7 +24,6 @@ const AuthProvider = ({ children }) => {
 
       // reset user info
       setUser({});
-      localStorage.removeItem("accessToken");
       navigate("/login");
       setIsLoading(false);
     });

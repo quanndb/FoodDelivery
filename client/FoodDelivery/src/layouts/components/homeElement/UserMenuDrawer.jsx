@@ -23,7 +23,10 @@ const UserMenuDrawer = () => {
   const open = useSelector(userDrawer);
 
   const handleLogout = () => {
-    auth.signOut().then(() => {});
+    auth.signOut().then(() => {
+      localStorage.removeItem("accessToken");
+      dispatch(DrawerManagerSlice.actions.setOpenUserDrawer(false));
+    });
   };
 
   const handleGoToOrder = () => {
