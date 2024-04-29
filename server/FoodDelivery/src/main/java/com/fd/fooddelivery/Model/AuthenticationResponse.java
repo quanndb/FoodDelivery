@@ -2,13 +2,13 @@ package com.fd.fooddelivery.Model;
 
 public class AuthenticationResponse {
 
-    private String token;
+    private String accessToken;
 
     public AuthenticationResponse(String token) {
-        this.token = token;
+        this.accessToken = token;
     }
 
-    public String getToken() {
-        return token;
+    public String getAccessToken() {
+        return accessToken;
     }
 }

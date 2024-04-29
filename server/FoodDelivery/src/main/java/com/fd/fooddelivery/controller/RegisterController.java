@@ -19,20 +19,19 @@ public class RegisterController {
     AccountService accountService;
 
     @PostMapping("/register")
-    public ResponseEntity<String> registerCustomer(@RequestBody Account account){
+    public ResponseEntity<String> registerCustomer(@RequestBody Account account) {
 
         ResponseEntity<String> response = null;
 
-        try{
+        try {
             Account newAccount = accountService.createAccount(account);
-            if(newAccount.getId()>0){
+            if (newAccount.getId() > 0) {
                 response = ResponseEntity.status(HttpStatus.CREATED)
-                        .body("Customer is created successfully for username = "+account.getUsername());
+                        .body("Customer is created successfully for username = " + account.getUsername());
             }
-        }
-        catch (Exception exception){
-                response = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                        .body("An exception occurred from server with exception = " +exception);
+        } catch (Exception exception) {
+            response = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("An exception occurred from server with exception = " + exception);
         }
 
         return response;

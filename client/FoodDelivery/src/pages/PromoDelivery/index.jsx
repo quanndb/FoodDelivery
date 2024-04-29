@@ -8,12 +8,12 @@ import {
   Chip,
   Grid,
 } from "@mui/material";
-import Header from "src/layouts/components/header/Header";
-import Footer from "src/layouts/components/footer/Footer";
+import Header from "src/components/header/Header";
+import Footer from "src/components/footer/Footer";
 import SearchIcon from "@mui/icons-material/Search";
 import { emphasize, styled } from "@mui/material/styles";
 import HomeIcon from "@mui/icons-material/Home";
-import FoodPromoItem from "src/layouts/components/homeElement/FoodPromoItem";
+import FoodPromoItem from "src/components/homeElement/FoodPromoItem";
 
 const data = [
   {

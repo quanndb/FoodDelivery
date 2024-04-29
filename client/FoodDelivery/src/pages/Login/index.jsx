@@ -1,8 +1,8 @@
 import { CircularProgress, Container, Paper, Box } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
-import SignUp from "src/layouts/components/login/SignUp";
-import LoginComponent from "src/layouts/components/login/LoginComponent";
+import SignUp from "src/components/login/SignUp";
+import LoginComponent from "src/components/login/LoginComponent";
 
 const Login = () => {
   const [isSignUp, setIsSignUp] = useState(false);

@@ -17,6 +17,7 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Navigate, useNavigate } from "react-router-dom";
+import authAPI from "src/services/api/authAPI";
 
 const LoginComponent = ({ setIsSignUp, setIsLoading }) => {
   const navigate = useNavigate();
@@ -49,14 +50,11 @@ const LoginComponent = ({ setIsSignUp, setIsLoading }) => {
       alert("Username and password cannot be blank");
     } else {
       try {
-        const response = await axios.post(
-          "http://localhost:2818/api/v1/admin/login",
-          {
-            username: username,
-            password: password,
-          }
-        );
-        localStorage.setItem("accessToken", response.data.token);
+        const response = await authAPI.login({
+          username: username,
+          password: password,
+        });
+        localStorage.setItem("accessToken", response.accessToken);
         setLoginState(true);
       } catch (error) {
         alert(error.message);
