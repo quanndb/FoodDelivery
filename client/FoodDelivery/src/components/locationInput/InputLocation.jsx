@@ -1,6 +1,5 @@
 import { useRef, useState } from "react";
-import MyLocationIcon from "@mui/icons-material/MyLocation";
-import PersonPinCircleIcon from "@mui/icons-material/PersonPinCircle";
+
 import {
   Paper,
   IconButton,
@@ -9,6 +8,8 @@ import {
   styled,
   tooltipClasses,
 } from "@mui/material";
+import MyLocationIcon from "@mui/icons-material/MyLocation";
+import PersonPinCircleIcon from "@mui/icons-material/PersonPinCircle";
 
 const InputLocation = () => {
   const inputLocation = useRef();

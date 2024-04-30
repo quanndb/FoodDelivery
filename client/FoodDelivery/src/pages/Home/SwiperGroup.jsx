@@ -1,12 +1,15 @@
+import "swiper/css";
+import "swiper/css/pagination";
+
+import { useState } from "react";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Pagination } from "swiper/modules";
+
 import { Box, IconButton } from "@mui/material";
 import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
-import "swiper/css";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import FoodPromoItem from "./FoodPromoItem";
-import { useState } from "react";
-import { Pagination } from "swiper/modules";
-import "swiper/css/pagination";
+
+import FoodPromoItem from "src/components/foodItem/FoodPromoItem";
 
 const data = [
   {

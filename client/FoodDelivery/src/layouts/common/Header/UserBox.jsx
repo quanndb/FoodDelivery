@@ -1,9 +1,11 @@
-import { Avatar, Box, Typography } from "@mui/material";
 import { useContext } from "react";
-import { AuthContext } from "src/context/AuthProvider";
 import { useDispatch } from "react-redux";
-import DrawerManagerSlice from "src/redux/slices/DrawerManagerSlice";
 import { jwtDecode } from "jwt-decode";
+
+import { Avatar, Box, Typography } from "@mui/material";
+
+import { AuthContext } from "src/context/AuthProvider";
+import DrawerManagerSlice from "src/redux/slices/DrawerManagerSlice";
 
 const UserBox = () => {
   const dispatch = useDispatch();

@@ -1,8 +1,9 @@
+import { useNavigate } from "react-router-dom";
+
 import { Box, Divider, Paper, Typography } from "@mui/material";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
 import ScheduleIcon from "@mui/icons-material/Schedule";
-import { useNavigate } from "react-router-dom";
 
 const Infor = ({ content }) => {
   return (

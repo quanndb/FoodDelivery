@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
-import { createContext } from "react";
+import { useEffect, useState, createContext } from "react";
 import { useNavigate } from "react-router-dom";
+
 import { CircularProgress } from "@mui/material";
+
 import { auth } from "src/firebase/config";
 
 export const AuthContext = createContext();

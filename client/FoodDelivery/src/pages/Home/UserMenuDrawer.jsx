@@ -1,3 +1,6 @@
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
 import {
   Box,
   Divider,
@@ -6,13 +9,12 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import SideDrawer from "../navigation/SideDrawer";
-import { useDispatch, useSelector } from "react-redux";
-import { userDrawer } from "src/redux/selectors/DrawerSelector";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import ExitToAppRoundedIcon from "@mui/icons-material/ExitToAppRounded";
+
 import { auth } from "src/firebase/config";
-import { useNavigate } from "react-router-dom";
+import { userDrawer } from "src/redux/selectors/DrawerSelector";
+import SideDrawer from "src/components/navigation/SideDrawer";
 import DrawerManagerSlice from "src/redux/slices/DrawerManagerSlice";
 
 const UserMenuDrawer = () => {

@@ -1,3 +1,5 @@
+import { Helmet } from "react-helmet-async";
+
 import {
   Box,
   InputBase,
@@ -8,12 +10,13 @@ import {
   Chip,
   Grid,
 } from "@mui/material";
-import Header from "src/components/header/Header";
-import Footer from "src/components/footer/Footer";
 import SearchIcon from "@mui/icons-material/Search";
 import { emphasize, styled } from "@mui/material/styles";
 import HomeIcon from "@mui/icons-material/Home";
-import FoodPromoItem from "src/components/homeElement/FoodPromoItem";
+
+import Header from "src/layouts/common/Header";
+import Footer from "src/layouts/common/Footer";
+import FoodPromoItem from "src/components/foodItem/FoodPromoItem";
 
 const data = [
   {
@@ -343,19 +346,25 @@ const Content = () => {
 
 const Restaurants = () => {
   return (
-    <Box>
-      <Header
-        unScroll={true}
-        isShowInputLocation={true}
-        isShowCartButton={true}
-      />
-      <Container sx={{ maxWidth: "1300px" }}>
-        <SearchField />
-        <Section />
-        <Content />
-      </Container>
-      <Footer />
-    </Box>
+    <>
+      <Helmet>
+        <title>Restaurants | FD food</title>
+      </Helmet>
+
+      <Box>
+        <Header
+          unScroll={true}
+          isShowInputLocation={true}
+          isShowCartButton={true}
+        />
+        <Container sx={{ maxWidth: "1300px" }}>
+          <SearchField />
+          <Section />
+          <Content />
+        </Container>
+        <Footer />
+      </Box>
+    </>
   );
 };
 

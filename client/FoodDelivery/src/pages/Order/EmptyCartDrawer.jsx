@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
-import SideDrawer from "../navigation/SideDrawer";
+
+import SideDrawer from "src/components/navigation/SideDrawer";
 import { cartDrawer } from "src/redux/selectors/DrawerSelector";
 import EmptycartBackground from "./EmptyCartBackground";
 

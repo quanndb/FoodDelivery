@@ -1,5 +1,5 @@
-import Header from "src/components/header/Header";
-import Footer from "src/components/footer/Footer";
+import { useEffect, useRef, useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 import {
   Box,
@@ -25,7 +25,9 @@ import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
 import ScheduleIcon from "@mui/icons-material/Schedule";
 import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from "@mui/icons-material/Add";
-import { useEffect, useRef, useState } from "react";
+
+import Header from "src/layouts/common/Header";
+import Footer from "src/layouts/common/Footer";
 
 const menu = [
   {
@@ -763,6 +765,10 @@ const Restaurant = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Restaurant | FD food</title>
+      </Helmet>
+
       <Box sx={{ backgroundColor: "#f8f8f8" }}>
         <Header
           unScroll={true}

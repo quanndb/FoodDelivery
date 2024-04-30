@@ -1,14 +1,16 @@
-import { Box, Button, Menu, MenuItem, Typography } from "@mui/material";
-import UserBox from "../homeElement/UserBox";
-import EastIcon from "@mui/icons-material/East";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
+
+import { Box, Button, Menu, MenuItem, Typography } from "@mui/material";
+import EastIcon from "@mui/icons-material/East";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+
+import UserBox from "src/layouts/common/Header/UserBox";
 import DrawerManagerSlice from "src/redux/slices/DrawerManagerSlice";
-import EmptyCartDrawer from "../cart/EmptyCartDrawer";
-import UserMenuDrawer from "../homeElement/UserMenuDrawer";
-import CartButton from "./CartButton";
-import InputLocation from "../homeElement/InputLocation";
+import EmptyCartDrawer from "src/pages/Order/EmptyCartDrawer";
+import UserMenuDrawer from "src/pages/Home/UserMenuDrawer";
+import CartButton from "src/layouts/common/Header/CartButton";
+import InputLocation from "src/components/locationInput/InputLocation";
 
 const Header = ({
   isShowCartButton,

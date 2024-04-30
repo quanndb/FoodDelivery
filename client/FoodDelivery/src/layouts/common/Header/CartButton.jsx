@@ -1,6 +1,8 @@
-import { IconButton } from "@mui/material";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { useDispatch } from "react-redux";
+
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import { IconButton } from "@mui/material";
+
 import DrawerManagerSlice from "src/redux/slices/DrawerManagerSlice";
 
 const CartButton = () => {

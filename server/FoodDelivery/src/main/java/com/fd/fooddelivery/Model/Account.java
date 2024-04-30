@@ -26,9 +26,7 @@ public class Account implements UserDetails {
     @Enumerated(value = EnumType.STRING)
     private Role role;
 
-    private String firstName;
-
-    private String lastName;
+    private String fullName;
 
     private String email;
 

@@ -1,6 +1,7 @@
+import { useState } from "react";
+
 import { Box, Button, Typography, Divider } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
-import { useState } from "react";
 
 const data = [
   {

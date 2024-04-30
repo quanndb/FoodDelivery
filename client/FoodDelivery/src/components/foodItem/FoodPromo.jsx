@@ -1,7 +1,9 @@
-import { Box, Button, Typography } from "@mui/material";
 import "swiper/css";
-import SwiperGroup from "./SwiperGroup";
 import { useNavigate } from "react-router-dom";
+
+import { Box, Button, Typography } from "@mui/material";
+
+import SwiperGroup from "src/pages/Home/SwiperGroup";
 
 const SeeMoreBtn = () => {
   const navigate = useNavigate();

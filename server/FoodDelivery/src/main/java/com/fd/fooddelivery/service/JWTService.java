@@ -53,7 +53,7 @@ public class JWTService {
                 .builder()
                 .subject(account.getUsername())
                 .claim("role",account.getRole())
-                .claim("name",account.getFirstName()+" "+account.getLastName())
+                .claim("name",account.getFullName())
                 .claim("picture",account.getAvatar())
                 .issuedAt(new Date(System.currentTimeMillis()))
                 .expiration(new Date(System.currentTimeMillis() + 60*60*1000))
