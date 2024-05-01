@@ -1,9 +1,7 @@
 import { Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
-import { CircularProgress } from "@mui/material";
-
-import LoginComponent from "../LoginContent";
+import LoginComponent from "../LoginComponent";
 import { AuthLayout } from "src/layouts";
 
 const Login = () => {

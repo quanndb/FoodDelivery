@@ -9,10 +9,11 @@ import {
 } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { SixKOutlined } from "@mui/icons-material";
 
-const InputField = ({ label, value, setValue }) => {
+const InputField = ({ label, value, setValue, disabled, sx }) => {
   return (
-    <FormControl required variant="outlined" sx={{ margin: "10px 0px" }}>
+    <FormControl required variant="outlined" sx={sx}>
       <InputLabel htmlFor={`outlined-adornment-${label}`}>{label}</InputLabel>
       <OutlinedInput
         id={`outlined-adornment-${label}`}
@@ -20,6 +21,7 @@ const InputField = ({ label, value, setValue }) => {
         label={label}
         value={value}
         onChange={(e) => setValue(e.target.value)}
+        disabled={disabled}
       />
     </FormControl>
   );

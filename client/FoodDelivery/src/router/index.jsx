@@ -9,6 +9,7 @@ import Restaurants from "src/pages/Restaurants";
 import Restaurant from "src/pages/Restaurant";
 import PromoDelivery from "src/pages/PromoDelivery";
 import SignUp from "src/pages/SignUp";
+import Profile from "src/pages/Profile";
 
 const AuthLayout = () => {
   return (
@@ -44,6 +45,10 @@ export default createBrowserRouter([
           {
             element: <Order />,
             path: "/order",
+          },
+          {
+            element: <Profile />,
+            path: "/profile",
           },
           {
             element: <Restaurants />,

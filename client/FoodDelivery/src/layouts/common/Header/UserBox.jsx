@@ -49,7 +49,13 @@ const UserBox = () => {
             },
           }}
         />
-        <Typography variant="h6" paddingRight={"10px"} color={"error"}>
+        <Typography
+          variant="h6"
+          paddingRight={"10px"}
+          color={"error"}
+          noWrap
+          textOverflow={"ellipsis"}
+        >
           {accessToken ? jwtDecode(accessToken).name : <></>}
         </Typography>
       </Box>

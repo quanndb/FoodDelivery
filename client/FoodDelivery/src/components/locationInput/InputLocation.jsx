@@ -10,8 +10,11 @@ import {
 } from "@mui/material";
 import MyLocationIcon from "@mui/icons-material/MyLocation";
 import PersonPinCircleIcon from "@mui/icons-material/PersonPinCircle";
+import mapAPI from "src/services/googleAPI/mapAPI";
 
 const InputLocation = () => {
+  const [location, setLocation] = useState(null);
+
   const inputLocation = useRef();
 
   const [openNotFoundLocationToolTip, setOpenNotFoundLocationToolTip] =
@@ -22,7 +25,36 @@ const InputLocation = () => {
   };
 
   const handleFindLocation = () => {
-    setOpenNotFoundLocationToolTip(true);
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          // Gọi API reverse geocoding để lấy địa chỉ từ tọa độ
+          mapAPI
+            .getLocation({
+              params: {
+                latlng: `${latitude},${longitude}`,
+                key: "AIzaSyByE0cajKmexmaNPo2qnDVuS7dTkZb7Owg",
+              },
+            })
+            .then((response) => response.json())
+            .then((data) => {
+              const address = data.results[0].formatted_address;
+              setLocation(address);
+            })
+            .catch((error) => {
+              console.error("Error fetching address:", error);
+              setOpenNotFoundLocationToolTip(true);
+            });
+        },
+        (error) => {
+          console.error("Error getting location:", error);
+          setOpenNotFoundLocationToolTip(true);
+        }
+      );
+    } else {
+      setOpenNotFoundLocationToolTip(true);
+    }
   };
 
   const handleFocusLocationInput = () => {
@@ -69,6 +101,7 @@ const InputLocation = () => {
         onBlur={handleBlurLocationInput}
         sx={{ ml: 1, flex: 1 }}
         placeholder="Search Google Maps"
+        value={location}
         inputProps={{ "aria-label": "search google maps" }}
       />
 

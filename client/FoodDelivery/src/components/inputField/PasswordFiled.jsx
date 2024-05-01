@@ -10,11 +10,11 @@ import {
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
-const PasswordFiled = ({ label, value, setValue }) => {
+const PasswordFiled = ({ label, value, setValue, sx }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <FormControl required variant="outlined" sx={{ margin: "10px 0px" }}>
+    <FormControl required variant="outlined" sx={sx}>
       <InputLabel htmlFor={`outlined-adornment-${label}`}>{label}</InputLabel>
       <OutlinedInput
         value={value}

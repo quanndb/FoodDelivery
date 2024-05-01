@@ -22,4 +22,9 @@ public class AccountService {
     public boolean accountExitst(String username) {
         return !accountRepository.findAccountByUsername(username).isEmpty();
     }
+
+    public Account getAccountByUsername(String username){
+        return accountRepository.findAccountByUsername(username).get(0);
+    }
+
 }

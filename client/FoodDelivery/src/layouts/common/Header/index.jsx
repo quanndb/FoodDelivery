@@ -7,7 +7,7 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 import UserBox from "src/layouts/common/Header/UserBox";
 import DrawerManagerSlice from "src/redux/slices/DrawerManagerSlice";
-import EmptyCartDrawer from "src/pages/Order/EmptyCartDrawer";
+import EmptyCartDrawer from "src/pages/Home/EmptyCartDrawer";
 import UserMenuDrawer from "src/pages/Home/UserMenuDrawer";
 import CartButton from "src/layouts/common/Header/CartButton";
 import InputLocation from "src/components/locationInput/InputLocation";

@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import ExitToAppRoundedIcon from "@mui/icons-material/ExitToAppRounded";
+import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 
 import { auth } from "src/firebase/config";
 import { userDrawer } from "src/redux/selectors/DrawerSelector";
@@ -36,11 +37,23 @@ const UserMenuDrawer = () => {
     navigate("/order");
   };
 
+  const handleGoToProfile = () => {
+    dispatch(DrawerManagerSlice.actions.setOpenUserDrawer(false));
+    navigate("/profile");
+  };
+
   return (
     <SideDrawer open={open} drawer="user">
       <Box sx={{ marginTop: "50px", width: "100%" }}>
         <Divider />
         <List>
+          <ListItemButton onClick={handleGoToProfile}>
+            <ListItemIcon>
+              <PersonOutlineIcon />
+            </ListItemIcon>
+            <ListItemText primary="Profile" />
+          </ListItemButton>
+
           <ListItemButton onClick={handleGoToOrder}>
             <ListItemIcon>
               <ShoppingCartOutlinedIcon />

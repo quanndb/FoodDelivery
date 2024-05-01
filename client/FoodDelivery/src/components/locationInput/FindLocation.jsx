@@ -1,4 +1,4 @@
-import { Paper, Typography, Button } from "@mui/material";
+import { Paper, Typography, Button, Box } from "@mui/material";
 
 import InputLocation from "./InputLocation";
 
@@ -48,20 +48,21 @@ const FindLocation = () => {
 
         <InputLocation />
 
-        <Button
-          sx={{
-            width: "90%",
-            marginTop: "20px",
-            height: "50px",
-            backgroundColor: "var(--primary-color)",
-            "&:hover": {
+        <Box sx={{ margin: "auto", display: "flex", justifyContent: "center" }}>
+          <Button
+            sx={{
+              width: "90%",
+              height: "50px",
               backgroundColor: "var(--primary-color)",
-            },
-          }}
-          variant="contained"
-        >
-          Tìm kiếm
-        </Button>
+              "&:hover": {
+                backgroundColor: "var(--primary-color)",
+              },
+            }}
+            variant="contained"
+          >
+            Tìm kiếm
+          </Button>
+        </Box>
       </Paper>
     </>
   );
