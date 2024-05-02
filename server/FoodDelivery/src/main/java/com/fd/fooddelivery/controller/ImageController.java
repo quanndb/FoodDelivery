@@ -24,28 +24,6 @@ public class ImageController {
     private ImageService imageService;
     @Autowired
     private CloudinaryService cloudinaryService;
-    @Autowired
-    private AccountService accountService;
-
-    @PostMapping("/update")
-    @ResponseBody
-    public ResponseEntity<Object> updateByUsername(@RequestParam("file") MultipartFile multipartFile,@RequestParam String username) throws IOException {
-        Account foundAccount = accountService.getAccountByUsername(username);
-        if (ImageIO.read(multipartFile.getInputStream()) == null) {
-            return new ResponseEntity<>("Image non valid!", HttpStatus.BAD_REQUEST);
-        }
-        Map result = cloudinaryService.upload(multipartFile);
-        Image image = new Image(
-                (String) result.get("original_filename"),
-                (String) result.get("url"),
-                (String) result.get("public_id"),
-                type,
-                productID==0?null:productID,blogID==0?null:blogID
-                );
-        imageService.save(image);
-        return new ResponseEntity<>("image saved ! ", HttpStatus.OK);
-    }
-
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteImageById (@PathVariable int id)

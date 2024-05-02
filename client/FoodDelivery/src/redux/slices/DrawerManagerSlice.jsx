@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const DrawerManagerSlice = createSlice({
-  name: "drawerManager",
+  name: "DrawerManager",
   initialState: { cartDrawerOpen: false, userDrawerOpen: false },
   reducers: {
     setOpenCartDrawer(state, action) {

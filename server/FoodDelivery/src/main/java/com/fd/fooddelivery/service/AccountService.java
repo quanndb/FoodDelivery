@@ -1,6 +1,7 @@
 package com.fd.fooddelivery.service;
 
 import com.fd.fooddelivery.Model.Account;
+import com.fd.fooddelivery.Model.Image;
 import com.fd.fooddelivery.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -27,4 +28,7 @@ public class AccountService {
         return accountRepository.findAccountByUsername(username).get(0);
     }
 
+    public void save(Account account) {
+       accountRepository.save(account);
+    }
 }

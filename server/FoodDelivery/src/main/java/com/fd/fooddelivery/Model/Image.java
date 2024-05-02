@@ -32,7 +32,7 @@ public class Image {
         this.name=name;
         this.imageURL=imageURL;
         this.imageID=publicId;
-        this.type=image.getType();
+        this.accountID=accountID;
     }
 
 

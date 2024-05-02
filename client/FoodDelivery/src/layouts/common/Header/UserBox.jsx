@@ -1,24 +1,19 @@
-import { useContext } from "react";
-import { useDispatch } from "react-redux";
-import { jwtDecode } from "jwt-decode";
+import { useDispatch, useSelector } from "react-redux";
+import { UserTokenPayLoad } from "src/redux/selectors/UserSelector";
 
 import { Avatar, Box, Typography } from "@mui/material";
 
-import { AuthContext } from "src/context/AuthProvider";
 import DrawerManagerSlice from "src/redux/slices/DrawerManagerSlice";
 
 const UserBox = () => {
   const dispatch = useDispatch();
 
-  const {
-    user: { uid, photoURL, auth },
-  } = useContext(AuthContext);
-
   const handleOpenUserDrawer = () => {
     dispatch(DrawerManagerSlice.actions.setOpenUserDrawer(true));
   };
 
-  const accessToken = localStorage.accessToken;
+  const user = useSelector(UserTokenPayLoad);
+
   return (
     <>
       <Box
@@ -36,7 +31,7 @@ const UserBox = () => {
       >
         <Avatar
           alt="avata"
-          src={accessToken ? jwtDecode(accessToken).picture : null}
+          src={user ? user.picture : null}
           onClick={handleOpenUserDrawer}
           sx={{
             width: "40px",
@@ -56,7 +51,7 @@ const UserBox = () => {
           noWrap
           textOverflow={"ellipsis"}
         >
-          {accessToken ? jwtDecode(accessToken).name : <></>}
+          {user ? user.name : <></>}
         </Typography>
       </Box>
     </>

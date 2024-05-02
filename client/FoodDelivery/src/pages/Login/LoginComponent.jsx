@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import UserManagerSlice from "src/redux/slices/UserManagerSlice";
+import { decodeAccessToken } from "src/utils/jwt-decode";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 import { Button, Typography, Box, CircularProgress } from "@mui/material";
@@ -12,6 +15,8 @@ import PasswordFiled from "src/components/inputField/PasswordFiled";
 
 const LoginComponent = ({}) => {
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
 
   const [loginState, setLoginState] = useState(false);
 
@@ -34,11 +39,16 @@ const LoginComponent = ({}) => {
       alert("Username and password cannot be blank");
     } else {
       try {
-        const response = await authAPI.login({
-          username: username,
-          password: password,
-        });
-        localStorage.setItem("accessToken", response.accessToken);
+        const response = await authAPI
+          .login({
+            username: username,
+            password: password,
+          })
+          .then((res) => {
+            localStorage.setItem("accessToken", res.accessToken);
+            const user = decodeAccessToken();
+            dispatch(UserManagerSlice.actions.setUserToken(user));
+          });
         setLoginState(true);
       } catch (error) {
         alert(error.message);
@@ -79,11 +89,13 @@ const LoginComponent = ({}) => {
             label={"Username"}
             value={username}
             setValue={setUserName}
+            sx={{ margin: "10px 0px" }}
           />
           <PasswordFiled
             label={"Password"}
             value={password}
             setValue={setPassword}
+            sx={{ margin: "20px 0px 30px 0px" }}
           />
           {/* ---------------------------------------------------- */}
           <Button variant="contained" onClick={handleLogin}>

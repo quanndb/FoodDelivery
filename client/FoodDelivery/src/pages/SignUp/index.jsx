@@ -26,20 +26,19 @@ const SignUpContent = () => {
 
   const handleSignUp = async () => {
     if (password === cfpassword) {
-      try {
-        await authAPI
-          .register({
-            username: username,
-            password: password,
-            fullName: fullname,
-          })
-          .then((res) => {
-            alert(res);
-            navigate("/login");
-          });
-      } catch (error) {
-        alert(error.message);
-      }
+      await authAPI
+        .register({
+          username: username,
+          password: password,
+          fullName: fullname,
+        })
+        .then((res) => {
+          navigate("/login");
+          alert(res);
+        })
+        .catch((error) => {
+          alert(error.response.data);
+        });
     } else {
       alert("Confirm password does not match");
     }
@@ -58,17 +57,29 @@ const SignUpContent = () => {
       <Typography variant="h4" sx={{ margin: "30px 0", fontWeight: "500" }}>
         Sign up to join us
       </Typography>
-      <TextFiled label={"Fullname"} value={fullname} setValue={setFullname} />
-      <TextFiled label={"Username"} value={username} setValue={setUsername} />
+      <TextFiled
+        label={"Fullname"}
+        value={fullname}
+        setValue={setFullname}
+        sx={{ margin: " 10px 0px" }}
+      />
+      <TextFiled
+        label={"Username"}
+        value={username}
+        setValue={setUsername}
+        sx={{ margin: " 10px 0px" }}
+      />
       <PasswordFiled
         label={"Password"}
         value={password}
         setValue={setPassword}
+        sx={{ margin: " 10px 0px" }}
       />
       <PasswordFiled
         label={"Confirm password"}
         value={cfpassword}
         setValue={setCFPassword}
+        sx={{ margin: " 10px 0px 30px 0px" }}
       />
       <Button
         variant="contained"

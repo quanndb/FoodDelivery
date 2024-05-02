@@ -34,6 +34,8 @@ public class Account implements UserDetails {
 
     private String avatar;
 
+    private String address;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));

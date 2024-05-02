@@ -42,8 +42,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/v1/auth/**", "/v1/order/**").permitAll()
                         .requestMatchers("/v1/admin/**").hasAuthority("ADMIN")
-                        .requestMatchers("/v1/employee/**").hasAuthority("EMPLOYEE")
-                        .requestMatchers("/v1/**").hasAuthority("USER")
+                        .requestMatchers("/v1/employee/**").hasAnyAuthority("EMPLOYEE","ADMIN")
+                        .requestMatchers("/v1/**").hasAnyAuthority("USER","ADMIN","EMPLOYEE")
                         
                         .anyRequest().authenticated()
                 ).userDetailsService(accountDetails)

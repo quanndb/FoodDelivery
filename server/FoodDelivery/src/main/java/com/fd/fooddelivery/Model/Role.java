@@ -2,7 +2,7 @@ package com.fd.fooddelivery.Model;
 
 public enum Role {
     ADMIN,
-    RESTAURANT,
+    SELLER,
     DRIVER,
     USER
 }

@@ -101,7 +101,7 @@ const InputLocation = () => {
         onBlur={handleBlurLocationInput}
         sx={{ ml: 1, flex: 1 }}
         placeholder="Search Google Maps"
-        value={location}
+        value={location ? location : ""}
         inputProps={{ "aria-label": "search google maps" }}
       />
 
